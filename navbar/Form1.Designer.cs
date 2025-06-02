@@ -1,8 +1,4 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-
-namespace navbar
+﻿namespace navbar
 {
     partial class Form1
     {
@@ -70,7 +66,7 @@ namespace navbar
             btn_dashboard.Font = new Font("Unbounded Light", 11.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_dashboard.ForeColor = Color.FromArgb(78, 45, 24);
             btn_dashboard.Image = Properties.Resources.Bar_chart_2;
-            btn_dashboard.Location = new Point(-1, 778);
+            btn_dashboard.Location = new Point(0, 778);
             btn_dashboard.Margin = new Padding(0);
             btn_dashboard.Name = "btn_dashboard";
             btn_dashboard.RightToLeft = RightToLeft.No;
@@ -90,7 +86,7 @@ namespace navbar
             btn_ticket.Font = new Font("Unbounded Light", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_ticket.ForeColor = Color.FromArgb(78, 45, 24);
             btn_ticket.Image = Properties.Resources.Frame_1;
-            btn_ticket.Location = new Point(-1, 656);
+            btn_ticket.Location = new Point(0, 656);
             btn_ticket.Margin = new Padding(0);
             btn_ticket.Name = "btn_ticket";
             btn_ticket.RightToLeft = RightToLeft.No;
@@ -110,7 +106,7 @@ namespace navbar
             btn_cashbox.Font = new Font("Unbounded Light", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_cashbox.ForeColor = Color.FromArgb(78, 45, 24);
             btn_cashbox.Image = Properties.Resources.Dollar_sign;
-            btn_cashbox.Location = new Point(-1, 536);
+            btn_cashbox.Location = new Point(0, 536);
             btn_cashbox.Margin = new Padding(0);
             btn_cashbox.Name = "btn_cashbox";
             btn_cashbox.RightToLeft = RightToLeft.No;
@@ -131,7 +127,7 @@ namespace navbar
             btn_receipt.Font = new Font("Unbounded Light", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_receipt.ForeColor = Color.FromArgb(78, 45, 24);
             btn_receipt.Image = Properties.Resources.List;
-            btn_receipt.Location = new Point(-1, 417);
+            btn_receipt.Location = new Point(0, 417);
             btn_receipt.Margin = new Padding(0);
             btn_receipt.Name = "btn_receipt";
             btn_receipt.RightToLeft = RightToLeft.No;
@@ -151,7 +147,7 @@ namespace navbar
             btn_staff.Font = new Font("Unbounded Light", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_staff.ForeColor = Color.FromArgb(78, 45, 24);
             btn_staff.Image = Properties.Resources.User;
-            btn_staff.Location = new Point(-1, 300);
+            btn_staff.Location = new Point(0, 300);
             btn_staff.Margin = new Padding(0);
             btn_staff.Name = "btn_staff";
             btn_staff.RightToLeft = RightToLeft.No;
@@ -193,7 +189,7 @@ namespace navbar
             btn_inventory.Font = new Font("Unbounded Light", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_inventory.ForeColor = Color.FromArgb(78, 45, 24);
             btn_inventory.Image = Properties.Resources.Archive;
-            btn_inventory.Location = new Point(-1, 184);
+            btn_inventory.Location = new Point(0, 184);
             btn_inventory.Margin = new Padding(0);
             btn_inventory.Name = "btn_inventory";
             btn_inventory.RightToLeft = RightToLeft.No;

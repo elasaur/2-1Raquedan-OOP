@@ -2,18 +2,40 @@ namespace navbar
 {
     public partial class Form1 : Form
     {
-        private Panel? contentPanel;
-        private Button? activeButton;
+        private Panel contentPanel = new Panel();
+        private Button activeButton = new Button();
+
+        // Enum to define user types
+        public enum UserType
+        {
+            User,
+            Admin
+        }
+
+        // Property to store current user type
+        private UserType currentUserType;
+
+        // Property to get/set user type with automatic UI update
+        public UserType CurrentUserType
+        {
+            get { return currentUserType; }
+            set
+            {
+                currentUserType = value;
+                UpdateSidebarVisibility();
+            }
+        }
 
         public Form1()
         {
             InitializeComponent();
             InitializeContentPanel();
+            // Set default user type (you can change this based on login)
+            CurrentUserType = UserType.Admin; // Default to User access
         }
 
         private void InitializeContentPanel()
         {
-            contentPanel = new Panel();
             contentPanel.Dock = DockStyle.Fill;
             contentPanel.BackColor = Color.White;
             contentPanel.Location = new Point(navbarPanel.Width, 0);
@@ -23,9 +45,75 @@ namespace navbar
             Controls.SetChildIndex(contentPanel, 0);
         }
 
+        // Method to update sidebar button visibility based on user type
+        private void UpdateSidebarVisibility()
+        {
+            if (currentUserType == UserType.Admin)
+            {
+                // Admin sees all buttons
+                ShowAllButtons();
+            }
+            else
+            {
+                // User sees only specific buttons
+                ShowUserButtons();
+            }
+        }
+
+        // Show all buttons for Admin
+        private void ShowAllButtons()
+        {
+            // Show all sidebar buttons
+            btn_dashboard.Visible = true;
+            btn_inventory.Visible = true;
+            btn_ticket.Visible = true;
+            btn_staff.Visible = true;
+            btn_receipt.Visible = true;
+            btn_cashbox.Visible = true;
+        }
+
+        // Show only specific buttons for User
+        private void ShowUserButtons()
+        {
+            // Hide admin-only buttons
+            btn_dashboard.Visible = false;
+            btn_inventory.Visible = false;
+
+            // Show user-allowed buttons
+            btn_ticket.Visible = true;
+            btn_staff.Visible = true;
+            btn_receipt.Visible = true;
+            btn_cashbox.Visible = true;
+        }
+
+        // Method to set user type (call this after login validation)
+        public void SetUserAccess(string username, string userRole)
+        {
+            if (userRole.ToLower() == "admin" || username.ToLower() == "admin")
+            {
+                CurrentUserType = UserType.Admin;
+            }
+            else
+            {
+                CurrentUserType = UserType.User;
+            }
+        }
+
+        // Alternative method using boolean
+        public void SetUserAccess(bool isAdmin)
+        {
+            CurrentUserType = isAdmin ? UserType.Admin : UserType.User;
+        }
+
+        // Method to toggle between user types (for testing purposes)
+        public void ToggleUserType()
+        {
+            CurrentUserType = (currentUserType == UserType.Admin) ? UserType.User : UserType.Admin;
+        }
+
         private void LoadPage(UserControl page)
         {
-            contentPanel!.Controls.Clear();
+            contentPanel.Controls.Clear();
             page.Dock = DockStyle.Fill;
             contentPanel.Controls.Add(page);
         }
